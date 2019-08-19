@@ -6,7 +6,6 @@ from django.db import models
 # 각각의 컬럼(필드) 정의
 class Article(models.Model):
     # id : integer 자동으로 정의(Primary Key)
-
     # CharField - 필수인자로 max_length 지정
     title = models.CharField(max_length=10)
     content = models.TextField()
