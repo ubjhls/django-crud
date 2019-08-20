@@ -18,8 +18,16 @@ def create(request):
     title = request.GET.get('title')
     content = request.GET.get('content')
     article = Article(title=title, content=content)
+    article.save()
     context = {
         'article' : article
     }
     # return render(request, 'articles/create.html', context)
-    return redirect('/articles/')
+    return redirect(f'/articles/{article.pk}/')
+
+def detail(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
+    context = {
+        'article' : article
+    }
+    return render(request, 'articles/detail.html', context)
