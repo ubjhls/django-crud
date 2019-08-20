@@ -222,7 +222,7 @@ article.save()
 ### 4. Delete
 
 ```python
-article = Article.onjects.get(pk=1)
+article = Article.objects.get(pk=1)
 article.delete()
 ```
 
