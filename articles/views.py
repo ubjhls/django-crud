@@ -23,7 +23,7 @@ def create(request):
         'article' : article
     }
     # return render(request, 'articles/create.html', context)
-    return redirect(f'/articles/{article.pk}/')
+    return redirect(f'/articles/{article.pk}/',context)
 
 def detail(request, article_pk):
     article = Article.objects.get(pk=article_pk)
@@ -46,7 +46,7 @@ def edit(request, article_pk):
 
 def update(request, article_pk):
     article = Article.objects.get(pk=article_pk)
-    article.title = request.GET.get('title_2')
-    article.content = request.GET.get('content_2')
+    article.title = request.GET.get('title')
+    article.content = request.GET.get('content')
     article.save()
     return redirect(f'/articles/{article.pk}/')
